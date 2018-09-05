@@ -1,13 +1,11 @@
 const Joi = require('joi');
+const logger = require('./logger')
 const express = require('express');
 const app = express();
 
 app.use(express.json());
 
-app.use(function(req, res, next) {
-    console.log('Loggin..');
-    next();
-});
+app.use(logger);
 
 app.use(function(req, res, next) {
     console.log('Authenticating..');
